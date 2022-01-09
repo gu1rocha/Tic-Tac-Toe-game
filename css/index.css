@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --vermelho: #E50914;
+    --preto: #141414;
+    --blue: #2196F3;
+    --background: rgb(25 42 50);
+    --colorItem: rgb(31 53 64);
+    --colorItemHover: rgb(31 60 64);
+    --colorX: #31c3be;
+    --colorO: #f1b237;
+}
+body{
+    display: flex;
+    min-height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+    flex-direction: column;
+
+}
+
+.headBox{
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 15px;
+    max-width: 400px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.headBox .players{
+    display: inline-flex;
+    align-items: center;
+}
+
+.headBox .players .first{
+    color: var(--colorX);
+    font-size: 50px;
+    margin-right: 10px;
+}
+
+.headBox .players .second{
+    color: var(--colorO);
+    font-size: 40px;
+}
+
+.headBox .turn{
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+    line-height: 0;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    box-shadow: rgb(17 33 43) 0 2px;
+    background-color: var(--colorItem);
+    color: #a6bec8;
+    font-family: Barlow, sans-serif;
+    font-weight: 900;
+    
+}
+
+.headBox .turn .fas{
+    margin-right: 5px;
+}
+
+.headBox .boxRefresh{
+    text-align: right;
+}
+
+.headBox .boxRefresh .refresh{
+    background-color: #a6bec8;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10%;
+    box-shadow: rgb(17 33 43) 5px 5px 2px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.headBox .refresh:hover{
+    background-color: #819199;
+}
+
+.headBox .refresh:active{
+    background-color: #819199;
+    box-shadow: rgb(17 33 43) 0 0 2px;
+}
+
+.box{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.box .item{
+    display: inline-flex;
+    width: 100%;
+    padding: 50%;
+    font-size: 20vmin;
+    line-height: 0;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10%;
+    box-shadow: rgb(17 33 43) 5px 5px 2px;
+    background-color: var(--colorItem);
+}
+
+.box .item:hover{
+    background-color: var(--colorItemHover);
+}
+
+.box .item:active, .box .item.ativo{
+    background-color: var(--colorItemHover);
+    box-shadow: rgb(17 33 43) 0 0 2px;
+}
+
+.box .item.ativo.fatimes{
+    background-color: var(--colorX);
+}
+
+.box .item.ativo.fadotcircle{
+    background-color: var(--colorO);
+}
+
+.box .item.ativo.fatimes i, .box .item.ativo.fadotcircle i{
+    color: white
+}
+
+.box .item i{
+    position: absolute;
+}
+
+.box .item .fa-times{
+    color: var(--colorX);
+}
+
+.box .item .fa-dot-circle{
+    font-size: 80px;
+    color: var(--colorO);
+}
