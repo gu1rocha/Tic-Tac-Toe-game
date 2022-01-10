@@ -4,9 +4,17 @@ var refresh = document.querySelector('.refresh');
 var boxTurn = document.querySelector('.turn');
 var turn = boxTurn.querySelector('.fas');
 
+var textPlay1 = document.querySelector('.score.player1').querySelector('.value');
+var textPlay2 = document.querySelector('.score.player2').querySelector('.value');
+var textDraw = document.querySelector('.score.draw').querySelector('.value');
+
+var finallyBox = document.querySelector('.boxFinally')
+var next = finallyBox.querySelector('.next')
+
 var jogador = '_'
 var vencedor = '_'
 var Empate = 0
+var play1 = 0, play2 = 0, draw  = 0;
 
 for(var i=0; i<9; i++) {
 	item[i].addEventListener('click', (event) => {
@@ -15,9 +23,17 @@ for(var i=0; i<9; i++) {
             event.target.classList.add("ativo");
 
             vencedor = vitoria(jogador);
+            if(vencedor == 'fa-times'){
+                textPlay1.textContent = ++play1
+                finallyBox.style.display = 'flex'
+            }else if(vencedor == "fa-dot-circle"){
+                textPlay2.textContent = ++play2
+                finallyBox.style.display = 'flex'
+            }
             Empate = empate();
             if(vencedor=='_' && Empate > 8){
-                alert('empate')
+                textDraw.textContent = ++draw
+                finallyBox.style.display = 'flex'
             }
 
 			trocarJogador(); 
@@ -25,7 +41,11 @@ for(var i=0; i<9; i++) {
 	});
 }
 
-refresh.addEventListener('click', (event) => {
+next.addEventListener('click', (event) => refreshGame());
+
+refresh.addEventListener('click', (event) => refreshGame());
+
+var refreshGame = () =>{
 	for(var i=0;i<9;i++) {
 		item[i].classList.remove("ativo");
 		item[i].classList.remove("fatimes");
@@ -33,9 +53,10 @@ refresh.addEventListener('click', (event) => {
 		item[i].querySelector('.fas').classList.remove("fa-times");
 		item[i].querySelector('.fas').classList.remove("fa-dot-circle");
 	}
+    finallyBox.style.display = 'none'
     vencedor = '_'
     sortearJogador()
-});
+}
 
 var sortearJogador = function() {
 	if(Math.floor(Math.random() * 2)==0) {
