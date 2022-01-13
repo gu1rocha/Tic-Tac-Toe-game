@@ -30,13 +30,15 @@ var refreshColor = (propertyColor,cor) =>{
     root.style.setProperty(`${propertyColor}`, `${cor}`)
 }
 
-function openNav() {
-    document.querySelector('aside').style.display = 'flex';
+function openCloseNav() {
+    if(document.querySelector('aside').style.display === 'flex')
+        document.querySelector('aside').style.display = `none`
+    else
+        document.querySelector('aside').style.display = `flex`
 }
 
 
-document.querySelector('.fas.fa-cog').addEventListener('click', (event) => document.querySelector('aside').style.cssText = `display: flex`)
-document.querySelector('.far.fa-times-circle').addEventListener('click', (event) => document.querySelector('aside').style.cssText = `display: none`);
+document.querySelector('.fas.fa-cog').addEventListener('click', (event) => openCloseNav());
 
 for(var i=0; i<9; i++) {
 	item[i].addEventListener('click', (event) => {

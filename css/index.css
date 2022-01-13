@@ -14,6 +14,9 @@
 @media screen and (min-width: 450px) {:root{ --width: 250px;}}
 @media screen and (max-width: 451px) {:root{ --width: 100%;}}
 
+@media screen and (min-width: 440px) {body{ font-size: 37px;}}
+@media screen and (max-width: 439px) {body{ font-size: 8.4vw;}}
+
 *{
     margin: 0;
     padding: 0;
@@ -29,13 +32,13 @@ body{
 aside{
     display: none;
     position: fixed;
-    top: 0;
+    bottom: 0;
     right: 0;
-    min-height: 100vh;
+    min-height: calc(100vh - 3em);
     width: var(--width);
     flex-direction: column;
     align-items: flex-end;
-    padding: 0 1.5em;
+    padding: 0 .5em;
     transition: 0.5s width;
     background-color: rgb(17 33 43);
     color: var(--gray);
@@ -53,7 +56,7 @@ aside .close i {
 nav{
     display: flex;
     background-color: var(--finally);
-    min-height: 4rem;
+    min-height: 3em;
     position: fixed;
     width: 100%;
     align-items: center;
@@ -63,12 +66,16 @@ nav{
 }
 
 nav h1{
-    font-size: 1.75em;
+    font-size: 1em;
+}
+
+nav div{
+    line-height: 1;
 }
 
 nav i{
     cursor: pointer;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .boxGame{
@@ -84,7 +91,7 @@ nav i{
     display: grid;
     width: 90%;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 15px;
+    grid-column-gap: .5em;
     max-width: 400px;
     justify-content: space-between;
     margin-bottom: 20px;
@@ -97,13 +104,13 @@ nav i{
 
 .headBox .players .first{
     color: var(--colorX);
-    font-size: 50px;
+    font-size: 1.5em;
     margin-right: 10px;
 }
 
 .headBox .players .second{
     color: var(--colorO);
-    font-size: 40px;
+    font-size: 1.3em;
 }
 
 .headBox .turn{
@@ -114,6 +121,7 @@ nav i{
     justify-content: center;
     align-items: center;
     border-radius: .25em;
+    padding: .25em;
     box-shadow: rgb(17 33 43) 0 2px;
     background-color: var(--colorItem);
     color: var(--gray);
@@ -131,13 +139,11 @@ nav i{
 
 .headBox .boxRefresh .refresh{
     background-color: var(--gray);
-    width: 50px;
-    height: 50px;
-    padding: 10px;
+    padding: .5em;
     border-radius: 10%;
     box-shadow: rgb(17 33 43) 5px 5px 2px;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 1em;
 }
 
 .headBox .refresh:hover{
@@ -162,7 +168,7 @@ nav i{
     display: inline-flex;
     width: 100%;
     padding: 50%;
-    font-size: 20vmin;
+    font-size: 3em;
     line-height: 0;
     justify-content: center;
     align-items: center;
@@ -202,7 +208,7 @@ nav i{
 }
 
 .box .item .fa-dot-circle{
-    font-size: 80px;
+    font-size: .8em;
     color: var(--colorO);
 }
 
@@ -214,6 +220,7 @@ nav i{
     max-width: 400px;
     justify-content: space-between;
     margin-top: 20px;
+    font-size: .75em;;
 }
 
 .scoreboard .score{
@@ -276,6 +283,7 @@ nav i{
     font-weight: bold;
     cursor: pointer;
     margin-top: 1em;
+    font-size: .7em;
 }
 
 .boxFinally .finally .boxButtons div:active{
@@ -284,15 +292,20 @@ nav i{
 
 .boxFinally .finally .boxButtons div.quit{
     background-color: var(--gray);
-    margin-left: .5em;
+    margin-right: .5em;
 }
 
 .boxFinally .finally .boxButtons div.next{
     background-color: var(--colorO);
 }
 
-.finally .champion.fas{
-    margin-right: .5em;
+.finally h2{
+    color: var(--gray);
+    font-size: 1.75em;
+}
+
+.finally .champion .fas{
+    margin-right: .25em;
 }
 
 .finally .champion.fatimes{
